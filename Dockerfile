@@ -56,10 +56,11 @@ CMD ["python3", "./main.py"]
 # xhost +
 # docker run --rm -it \
 #     -v /tmp/.X11-unix:/tmp/.X11-unix \
+#     -v $HOME:$HOME \
 #     -e PYTHONPATH=/usr/src/app \
 #     -e DISPLAY=$DISPLAY \
 #     -e QT_QPA_PLATFORM=xcb \
-#     -u qtuser \
+#     --user $(id -u):$(id -g) \
 #     dotdotgoose
 # xhost -
 
